@@ -56,6 +56,12 @@
 
             <small>Опубликовано {{ post.date_posted.strftime('%A, %d %B %Y %I:%M %p') }}</small>
             <br>
+            {% if post.image_file %}
+                <div class="form-group">
+                    <img style="margin-right: 5px;"
+                         src="{{ url_for('static', filename='posts_pics/' + post.image_file) }}">
+                </div>
+            {% endif %}
             <br>
             <p class="card-text">{{ post.content }}</p>
         </div>
