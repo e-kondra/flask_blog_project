@@ -59,7 +59,7 @@ def account():
         current_user.username = form.username.data
         current_user.email = form.email.data
         db.session.commit()
-        flash('Ваш аккаунт был обновлен!', 'success')
+        flash('Your account was changed!', 'success')
         return redirect(url_for('users.account'))
     elif request.method == 'GET':
         form.username.data = current_user.username
@@ -101,25 +101,25 @@ def reset_request():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         send_reset_email(user)  # отправка письмо с инструкциями
-        flash('На Ваш email отправлено письмо с инструкциями по сбросу пароля', 'info')
+        flash(' Instructions for password reset has been sent to your email address', 'info')
         return redirect(url_for('users.login'))
     return render_template('reset_request.html', title='Сброс пароля', form=form)
 
 
-@users.route("/reset_password/<token>", methods=['GET', 'POST'])
+@users.route("/reset_password_<token>", methods=['GET', 'POST'])
 def reset_token(token):
     """ контроллер для изменения пароля"""
     if current_user.is_authenticated:
-        return redirect(url_for('posts,allposts'))
+        return redirect(url_for('posts.allposts'))
     user = User.verify_reset_token(token)  # десериализация ключа
     if user is None:
-        flash('Это недействительный токен', 'warning')
+        flash('This is invalid token', 'warning')
         return redirect(url_for('users.reset_request'))
     form = ResetPasswordForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')  # Получаем пароль из формы и выполняем его хеширование,
         user.password = hashed_password  # Вносим изменения в бд
         db.session.commit()
-        flash('Ваш пароль был обновлен! Теперь можете авторизоваться', 'success')
+        flash('The password was renewed! Noe you can login', 'success')
         return redirect(url_for('users.login'))
-    return render_template('reset_token.html', title='брос пароля', form=form)
+    return render_template('reset_token.html', title='reset password', form=form)

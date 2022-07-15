@@ -61,3 +61,5 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"Запись('{self.title}', '{self.date_posted}', '{self.image_file}')"
+
+

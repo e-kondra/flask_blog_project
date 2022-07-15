@@ -1,4 +1,23 @@
-{% extends "layout.html" %}
+{% extends "base.html" %}
+
+{% block title %}
+Reset request
+{% endblock %}
+
+{% block navi %}
+<a href="/" class="nav-link ">CV</a>
+
+<a href="portfolio" class="nav-link">PORTFOLIO</a>
+<a href="blog" class="nav-link">BLOG</a> |
+{% if current_user.is_authenticated %}
+<a href="account" class="nav-link">ACCOUNT</a>
+<a href="logout" class="nav-link">LOGOUT</a>
+{% else %}
+<a href="login" class="nav-link active">LOGIN</a>
+<a href="register" class="nav-link">REGISTER</a>
+{% endif %}
+{% endblock %}
+
 {% block content %}
 <div class="content-section">
     <form method="POST" action="">
@@ -8,7 +27,7 @@
             {% if form.errors %}
             {{ form.errors }}
             {% endif %}
-            <legend class="border-bottom mb-4">Сброс пароля</legend>
+            <legend class="border-bottom mb-4">Reset password</legend>
             <div class="form-group">
                 {{ form.email.label(class="form-control-label") }}
                 {% if form.email.errors %}
@@ -28,4 +47,4 @@
         </div>
     </form>
 </div>
-{% endblock content %}
+{% endblock %}

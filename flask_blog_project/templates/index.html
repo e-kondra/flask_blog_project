@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Ekaterina Kondratyeva
+{% endblock %}
+
+
+{% block navi %}
+    <a href="/" class="nav-link active">CV</a>
+
+    <a href="portfolio" class="nav-link">PORTFOLIO</a>
+    <a href="blog" class="nav-link">BLOG</a> |
+    {% if current_user.is_authenticated %}
+    <a href="account" class="nav-link">ACCOUNT</a>
+    <a href="logout" class="nav-link">LOGOUT</a>
+    {% else %}
+    <a href="login" class="nav-link">LOGIN</a>
+    <a href="register" class="nav-link">REGISTER</a>
+    {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+    <section class="intro-section">
+        {% if current_user.is_authenticated %}
+        <h2 class="section-title">{{ current_user.username }}, hello!</h2>
+        {% else %}
+        <h2 class="section-title">hello!</h2>
+        {% endif %}
+        <p>I am Ekaterina Kondratyeva, python developer.
+            I have been living in Lithuania for 7 years and working remotely as PL Plus, PL/SQL developer in InformTech (Russia).
+            Now I try to change my IT-direction, soon I will finish my courses.
+            I want to find a job in Lithuania as python developer.
+        </p>
+    </section>
+    <section class="resume-section">
+        <div class="row">
+            <div class="col-lg-6">
+                <h6 class="section-subtitle">RESUME</h6>
+                <h2 class="section-title">EDUCATION</h2>
+                <ul class="time-line">
+                    <li class="time-line-item">
+                        <span class="badge badge-primary">2021 - 2022</span>
+                        <h6 class="time-line-item-title">Python Developer</h6>
+                        <p class="time-line-item-subtitle">GeekBrains University</p>
+                        <p class="time-line-item-content">Django, REST, Flask, Wsgi, Python</p>
+                    </li>
+                    <li class="time-line-item">
+                        <span class="badge badge-primary">2010 - 2014</span>
+                        <h6 class="time-line-item-title">Informatics and Computer engineering</h6>
+                        <p class="time-line-item-subtitle">Siberian State University of Telecommunications and Information</p>
+                        <p class="time-line-item-content">Bachelor's degree
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <h6 class="section-subtitle">RESUME</h6>
+                <h2 class="section-title">Experience</h2>
+                <ul class="time-line">
+                    <li class="time-line-item">
+                        <span class="badge badge-primary">2021 - current time</span>
+                        <h6 class="time-line-item-title">Python Developer(student and mentor)</h6>
+                        <p class="time-line-item-subtitle">GeekBrains University</p>
+                        <p class="time-line-item-content">Developed python-projects and helped other students</p>
+                        <p class="time-line-item-subtitle">Last projects:</p>
+                        <p class="time-line-item-content"> - Group project "BestJob". Stack: Python, Django, JS, Ajax, Bootstrap, Agile. <a href="http://80.78.247.147/">link</a></p>
+                        <p class="time-line-item-content"> - My CV and Blog. Stack: Python, Flask, SQLAlchemy JS, Bootstrap. <a href="https://blog-flask-pr.herokuapp.com/">link</a></p>
+                        <p class="time-line-item-content"> - Keto Calculation (My own WSGI). Stack: Python, JS, Ajax, Bootstrap, CSS. <a href="#">link</a></p>
+                        <p class="time-line-item-content"> - Todo. Stack: Python, Django REST Framework, React, React Bootstrap.<a href="https://github.com/e-kondra/DRF_todo/tree/Lesson10">Git</a></p>
+                        <p class="time-line-item-content"> - GeekShop. Stack: Python, Django, JS, Ajax, Bootstrap, CSS. <a href="https://github.com/e-kondra/Django.geekshop/tree/Part2_lesson8">Git</a></p>
+                    </li>
+                    <li class="time-line-item">
+                        <span class="badge badge-primary">2010 - current time</span>
+                        <h6 class="time-line-item-title">PL Plus, PL/SQL Developer</h6>
+                        <p class="time-line-item-subtitle">OOO InformTech</p>
+                        <p class="time-line-item-content">Development of software algorithms for the requirements of specific customers.
+                        Сustomization and expansion of functionality of bank products, integration with different systems(Digital Cashier,
+                        Bureau of Credit History, Credit Registry etc), technical support. Participation in software implementation projects
+                        in Banks, implementation of data migration, software setup, training of bank staff in software.
+                        <p class="time-line-item-subtitle">Last projects:</p>
+                           <p class="time-line-item-subtitle">National Mortgages Factory (2018 - current time)</p>
+                        <p class="time-line-item-content">Automation of queries in data validation services, credit redemption report, technical support</p>
+                        <p class="time-line-item-subtitle">Far Eastern Bank (2019-2021)</p>
+                        <p class="time-line-item-content">Partisipated in the project of implementation the Automated Banking System: data migration and
+                            software setup of bank's product Interbank Credits, extention of functionality of bank's product Limits, development of product Сredit operations </p>
+                        </p>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+    {#        <section class="services-section">#}
+    {#            <h6 class="section-subtitle">WHAT I DO</h6>#}
+    {#            <h2 class="section-title">SERVICES</h2>#}
+    {#            <div class="row">#}
+    {#                <div class="media service-card col-lg-6">#}
+    {#                    <div class="service-icon">#}
+    {#                        <img src="assets/images/001-target.svg" alt="target">#}
+    {#                    </div>#}
+    {#                    <div class="media-body">#}
+    {#                        <h5 class="service-title">web designing</h5>#}
+    {#                        <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae,#}
+    {#                            interdum sed#}
+    {#                            tortor.</p>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="media service-card col-lg-6">#}
+    {#                    <div class="service-icon">#}
+    {#                        <img src="assets/images/003-idea.svg" alt="bulb">#}
+    {#                    </div>#}
+    {#                    <div class="media-body">#}
+    {#                        <h5 class="service-title">Graphic design</h5>#}
+    {#                        <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae,#}
+    {#                            interdum sed#}
+    {#                            tortor.#}
+    {#                        </p>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="media service-card col-lg-6">#}
+    {#                    <div class="service-icon">#}
+    {#                        <img src="assets/images/002-development.svg" alt="development">#}
+    {#                    </div>#}
+    {#                    <div class="media-body">#}
+    {#                        <h5 class="service-title">Development</h5>#}
+    {#                        <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae,#}
+    {#                            interdum sed#}
+    {#                            tortor.#}
+    {#                        </p>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <div class="media service-card col-lg-6">#}
+    {#                    <div class="service-icon">#}
+    {#                        <img src="assets/images/004-smartphone.svg" alt="smartphone">#}
+    {#                    </div>#}
+    {#                    <div class="media-body">#}
+    {#                        <h5 class="service-title">Mobile design</h5>#}
+    {#                        <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae,#}
+    {#                            interdum sed#}
+    {#                            tortor.#}
+    {#                        </p>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </section>#}
+    {#        <section class="testimonial-section">#}
+    {#            <div id="testimonialCarousel" class="testimonial-carousel carousel slide" data-ride="carousel">#}
+    {#                <div class="carousel-inner">#}
+    {#                    <div class="carousel-item active">#}
+    {#                        <p class="testimonial-content">Mauris magna sapien, pharetra consectetur fringilla vitae,#}
+    {#                            interdum sed tortor.</p>#}
+    {#                        <img src="assets/images/Procfile.png" alt="profile" class="testimonial-img">#}
+    {#                        <p class="testimonial-name">Nout Golstein</p>#}
+    {#                    </div>#}
+    {#                    <div class="carousel-item">#}
+    {#                        <p class="testimonial-content">Mauris magna sapien, pharetra consectetur fringilla vitae,#}
+    {#                            interdum sed tortor.</p>#}
+    {#                        <img src="assets/images/Procfile.png" alt="profile" class="testimonial-img">#}
+    {#                        <p class="testimonial-name">Nout Golstein</p>#}
+    {#                    </div>#}
+    {#                    <div class="carousel-item">#}
+    {#                        <p class="testimonial-content">Mauris magna sapien, pharetra consectetur fringilla vitae,#}
+    {#                            interdum sed tortor.</p>#}
+    {#                        <img src="assets/images/Procfile.png" alt="profile" class="testimonial-img">#}
+    {#                        <p class="testimonial-name">Nout Golstein</p>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                <ol class="carousel-indicators">#}
+    {#                    <li data-target="#testimonialCarousel" data-slide-to="0" class="active"></li>#}
+    {#                    <li data-target="#testimonialCarousel" data-slide-to="1"></li>#}
+    {#                    <li data-target="#testimonialCarousel" data-slide-to="2"></li>#}
+    {#                </ol>#}
+    {#            </div>#}
+    {#        </section>#}
+{% endblock %}

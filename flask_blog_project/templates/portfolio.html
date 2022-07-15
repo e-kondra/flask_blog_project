@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}
+Portfolio
+{% endblock %}
+
+{% block navi %}
+<a href="/" class="nav-link ">CV</a>
+
+<a href="portfolio" class="nav-link active">PORTFOLIO</a>
+<a href="blog" class="nav-link">BLOG</a> |
+{% if current_user.is_authenticated %}
+<a href="account" class="nav-link">ACCOUNT</a>
+<a href="logout" class="nav-link">LOGOUT</a>
+{% else %}
+<a href="login" class="nav-link">LOGIN</a>
+<a href="register" class="nav-link">REGISTER</a>
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+<section class="portfolio-section">
+    <h2 class="section-title">PORTFOLIO</h2>
+
+    <div class="portfolio-wrapper">
+        <figure class="portfolio-item hover-box">
+            <a href="http://80.78.247.147/"><img src="static/assets/images/BestJob.png" alt="project"
+                                                 class="blog-post-thumbnail"></a>
+            <figcaption class="portfolio-item-details overlay">
+                <h5 class="portfolio-item-title">Best Job</h5>
+                <p class="portfolio-item-description">groupe project Django</p>
+            </figcaption>
+        </figure>
+        <figure class="portfolio-item hover-box">
+            <a href="https://blog-flask-pr.herokuapp.com/"><img src="static/assets/images/Resume.png" alt="project"
+                                                 class="blog-post-thumbnail"></a>
+            <figcaption class="portfolio-item-details overlay">
+                <h5 class="portfolio-item-title">Resume</h5>
+                <p class="portfolio-item-description">Flask project</p>
+            </figcaption>
+        </figure>
+        <figure class="portfolio-item hover-box">
+            <img src="assets/images/img_3.png" alt="project" class="portfolio-item-img">
+            <figcaption class="portfolio-item-details overlay">
+                <h5 class="portfolio-item-title">PROJECT 03</h5>
+                <p class="portfolio-item-description">Branding, Photography</p>
+            </figcaption>
+        </figure>
+        <figure class="portfolio-item hover-box">
+            <img src="assets/images/img_4.png" alt="project" class="portfolio-item-img">
+            <figcaption class="portfolio-item-details overlay">
+                <h5 class="portfolio-item-title">PROJECT 04</h5>
+                <p class="portfolio-item-description">Branding, Photography</p>
+            </figcaption>
+        </figure>
+    </div>
+</section>
+
+{% endblock %}

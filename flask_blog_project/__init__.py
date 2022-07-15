@@ -27,11 +27,13 @@ def create_app():
     from flask_blog_project.users.routes import users
     from flask_blog_project.posts.routes import posts
     from flask_blog_project.errors.handlers import errors
+    from flask_blog_project.portfolio.routes import portfolio
 
     app.register_blueprint(main)
     app.register_blueprint(users)
     app.register_blueprint(posts)
     app.register_blueprint(errors)
+    app.register_blueprint(portfolio)
 
     return app  # Вернет объект приложения
 
