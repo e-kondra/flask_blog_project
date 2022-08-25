@@ -10,7 +10,8 @@ def save_picture(form_picture):
     _, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
     picture_path = os.path.join(current_app.root_path,
-                                'static/posts_pics', picture_fn)
+                                'static/assets/images', picture_fn)
+                                # 'static/posts_pics', picture_fn)
 
     output_size = (300, 300)
 

@@ -34,8 +34,8 @@ Blog
         <article class="blog-post">
             <a href="{{ url_for('posts.post', post_id=post.id) }}" class="blog-post-link">
                 {% if post.image_file %}
-                <img src="{{ url_for('static', filename='posts_pics/' + post.image_file) }}" alt="news 1"
-                     class="blog-post-thumbnail">
+                <img src="{{ url_for('static', filename='assets/images/' + post.image_file) }}" alt="news 1"
+                     class="blog-post-thumbnail" width="100" height="200">
                 {% endif %}
                 <h5 class="blog-post-title">{{ post.title }}</h5>
 

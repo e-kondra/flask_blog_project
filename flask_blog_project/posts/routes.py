@@ -67,7 +67,8 @@ def update_post(post_id):
         form.title.data = post.title
         form.content.data = post.content
         if post.image_file:
-            image_file = url_for('static', filename='posts_pics/' +
+            # image_file = url_for('static', filename='posts_pics/' +
+            image_file = url_for('static', filename='assets/images' +
                                                 post.image_file)  # получение объекта фото
         else:
             image_file = ''
